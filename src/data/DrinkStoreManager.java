@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package data;
 
 import java.text.DecimalFormat;
@@ -10,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Scanner;
 
 /**
@@ -19,7 +13,10 @@ import java.util.Scanner;
  */
 public class DrinkStoreManager {
 
-    int maxOfPrice, minOfPrice;
+    int minOfDesLength = 100, maxOfDesLength = 500;
+
+    int minOfPrice, maxOfPrice;
+    
     static Scanner sc = new Scanner(System.in);
     HashMap<String, Double> optionsAndPrice = new HashMap<>();
     Map<String, Drink> list = new HashMap<>();
@@ -115,27 +112,41 @@ public class DrinkStoreManager {
         System.out.println(df.format(money));
     }
 
-    public static int countChars(String str) {
-        int count = 0;
-        return str.length();
-    }
-
-    public String defaultSizeOfDescription(String des) {
-        int min = 10;
-        int max = 15;
-
+    public String defaultSizeOfDescription() {
+        String tempString = "";
+        int minLength = 0, maxLength = 0;
+        minLength = Input.inputNumber("Enter min of length: ");
+        maxLength = Input.inputNumber("Enter max of length: ");
+        
         do {
-            System.out.println("Enter description: ");
-            des = sc.nextLine();
-            if (countChars(des) < min || countChars(des) > max) {
-                System.out.println("words description must from " + min + " to " + max + "chars");
+            try {
+                System.out.println("Enter desciption from " + minLength + " to " + maxLength);
+                String des = sc.nextLine();
+                if (des.length() < minLength || des.length() > maxLength) {
+                    System.out.println("length ur description not between " + minLength + " and " + maxLength);
+                    tempString += des;
+                }
+            } catch (Exception e) {
             }
-            return des;
-        } while (countChars(des) < min || countChars(des) > max);
+        } while (tempString.length() < minLength || tempString.length() > maxLength);
+        return tempString;
     }
 
-    public void setNewMinMaxChars(int newMin, int newMax) {
-        newMin = Validation.isInteger("Enter min of length description: ", "Must be integer number", "Number must be greater than 0");
+
+//    public String getDes() {
+//        String temp = "";
+//        do {
+//            String des = sc.nextLine();
+//            if (des.length() < 20 - temp.length()) {
+//                temp += des;
+//            }
+//        } while (temp.length() < 10 || temp.length() > 20);
+//        return temp;
+//
+//    }
+
+    public void setDomainOfPrice(){
+        
     }
 
 }

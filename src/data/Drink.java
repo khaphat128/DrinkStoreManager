@@ -16,6 +16,7 @@ public class Drink {
     private String description;
     private String type;
     private int quantity;
+    private double minPrice, maxPrice;
 
     public Drink(String name, double price, String description, String type) {
         this.name = name;
@@ -72,6 +73,22 @@ public class Drink {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public double getMinPrice() {
+        return minPrice;
+    }
+
+    public void setMinPrice(double minPrice) {
+        this.minPrice = minPrice;
+    }
+
+    public double getMaxPrice() {
+        return maxPrice;
+    }
+
+    public void setMaxPrice(double maxPrice) {
+        this.maxPrice = maxPrice;
     }
 
     @Override

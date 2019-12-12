@@ -40,10 +40,9 @@ public class main {
                 case 4:
                     drinkManager.rankOfDrink();
                     break;
-                case 5:
-                    String des = "";
-                    
-                    System.out.println(drinkManager.defaultSizeOfDescription(des));
+                case 5: 
+                    drinkManager.defaultSizeOfDescription();
+                    break;
             }
         } while (choice != 6);
 
